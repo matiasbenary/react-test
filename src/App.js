@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Title from "./components/Title/Index";
+import Body from "./components/Body";
 
 function App() {
+  const lista = [<li>Pan</li>, <li>Leche</li>, <li>Queso</li>, <li>Te</li>];
+  const listaAPI = ["Pan", "Leche", "Queso", "Te"];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title status={true} invisible={false} circuitoCorto={false} />
+      <Body state="aburrido" />
+      <ul>{lista}</ul>
+      <ol>{lista}</ol>
+      <ul>
+        {listaAPI.map((item, index) => {
+          return <li key={index + "item"}>{item}</li>;
+        })}
+      </ul>
     </div>
   );
 }
